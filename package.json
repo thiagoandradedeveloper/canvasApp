@@ -1,0 +1,21 @@
+{
+  "name": "canvasapp",
+  "version": "1.0.0",
+  "description": "App para manipulação de imagem",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron main.js"
+  },
+  "author": "Thiago Andrade",
+  "license": "MIT",
+  "build": {
+    "appId": "com.example.app",
+    "win": {
+      "icon": "logo.ico"
+    }
+  },
+  "dependencies": {
+    "electron": "^28.1.2"
+  }
+}

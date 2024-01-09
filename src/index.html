@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CanvasApp</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>        
+    <div class="containerContent">
+        <canvas width="450" height="300" id="outputCanvas"></canvas>
+        <img width="450" height="300" id="imgPreview">
+    </div>
+    <div class="containerControler">
+        <input type="file" id="imageInput" accept="image/*">
+        <hr>
+        Envelhecimento: <span id="valueSepia">0</span>%<br>
+        0<input type="range" id="sepia" disabled value="0" min="0" max="100">100
+        <hr>
+        Escala cinza: <span id="valorEscalaCinza">0</span>%<br>
+        0<input type="range" id="escalaCinza" disabled value="0" min="0" max="100">100
+        <hr>
+        Opacidade: <span id="valueOpacity">0</span>%<br>
+        0<input type="range" id="opacity1" disabled value="100" min="0" max="100">100
+        <input type="color" id="corFundo" value="#ffffff">
+        <hr>
+        Blur: <span id="valueBlur">0</span>px<br>
+        <input type="number" id="blur" min="0" max="9999" maxlength="4" disabled value="0">&nbsp;px
+        <hr>
+        <button id="reset" disabled>Redefinir Imagem</button>
+        <hr>
+        <table>
+            <tr>
+                <td>Largura:</td>
+                <td id="larguraImg"></td>
+            </tr>
+            <tr>
+                <td>Altura:</td>
+                <td id="alturaImg"></td>
+            </tr>
+            <tr>
+                <td>Tamanho:</td>
+                <td id="tamanhoImg"></td>
+            </tr>
+            <tr>
+                <td>Nome:</td>
+                <td id="nomeImg"></td>
+            </tr>
+        </table>
+        <hr>
+        <button id="downloadButton" disabled>Salvar Imagem</button>
+        <!--para navegadores-->
+        <!--<label>
+            Novo nome: 
+            <input type="checkbox" id="newNameSave" disabled>
+        </label>-->
+    </div>
+</body>
+</html>
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/thiagoandradedeveloper/canvasApp.git
+git push -u origin main

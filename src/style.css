@@ -1,0 +1,79 @@
+*{
+    font-family: sans-serif,Arial, Helvetica, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+    overflow: hidden;
+    background: #e9f7ff;
+}
+#outputCanvas,#imgPreview{
+    border: thin solid rgb(192, 192, 192);
+    background: #fff;
+}
+#imgPreview{
+    position: relative;
+    width: 450px;
+    height: 300px;
+}
+.containerControler{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 20dvw;
+    height: 100dvh;
+    background: #d3eeff;
+    padding: 20px;
+}
+.containerContent{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 77dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    gap: 25px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+#blurInput{
+    position: relative;
+    width: 50px;
+}
+tr{
+    position: relative;
+    padding: 20px;
+}
+td{
+    max-width: 150px;
+    white-space: wrap;
+}
+td:nth-child(2){
+    font-weight: bold;
+}
+input[type="number"]{
+    position: relative;
+    padding: 5px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #aeaeae;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

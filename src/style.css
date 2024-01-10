@@ -1,5 +1,7 @@
 *{
     font-family: sans-serif,Arial, Helvetica, sans-serif;
+    position: relative;
+    z-index: 1;
 }
 body{
     display: flex;
@@ -8,24 +10,26 @@ body{
     gap: 25px;
     overflow: hidden;
     background: #e9f7ff;
+    padding: 0;
+    margin: 0;
 }
-#outputCanvas,#imgPreview{
+#outputCanvas{
     border: thin solid rgb(192, 192, 192);
     background: #fff;
 }
-#imgPreview{
-    position: relative;
-    width: 450px;
-    height: 300px;
+#outputCanvas{
+    display: none;
 }
 .containerControler{
     position: fixed;
     right: 0;
     top: 0;
     width: 20dvw;
-    height: 100dvh;
+    height: 100%;
     background: #d3eeff;
     padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 50px;
 }
 .containerContent{
     position: absolute;
@@ -42,11 +46,9 @@ body{
     overflow-y: auto;
 }
 #blurInput{
-    position: relative;
     width: 50px;
 }
 tr{
-    position: relative;
     padding: 20px;
 }
 td{
@@ -57,12 +59,13 @@ td:nth-child(2){
     font-weight: bold;
 }
 input[type="number"]{
-    position: relative;
     padding: 5px;
 }
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 table, th, td {
@@ -76,4 +79,23 @@ th, td {
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+#showHidenControls{
+    display: block;
+}
+#xCroped, #yCroped, #widthCroped, #heightCroped{
+    position: relative;
+    width: 50px;
+}
+#downloadButton{
+    margin-bottom: 20px;
+}
+#logocontainer{
+    text-align: center;
+    margin-bottom: 50px;
+    img{
+        --sizeLogo: 120px;
+        width: var(--sizeLogo);
+        height: var(--sizeLogo);
+    }
 }

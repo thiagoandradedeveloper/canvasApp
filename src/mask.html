@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mask.css">
+    <script src="mask.js"></script>
+</head>
+<body>
+    <div>
+        <a href="index.html">
+            <img src="img/logo.png" class="logo">
+        </a>
+        Mascara de Cor(Transparência <span id="valorTransparencia">0%</span>)&nbsp;
+        [0%<input type="range" value="0" min="0" max="100" id="inputTransparencia">100%]  
+        Cor da Mascara<input type="color" id="color" value="#ffffff">
+    </div>
+    <canvas id="canvas"></canvas>
+</body>
+</html>

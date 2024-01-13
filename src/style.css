@@ -1,101 +1,233 @@
+:root{
+    --size: 15dvw;
+}
 *{
     font-family: sans-serif,Arial, Helvetica, sans-serif;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+    /*border: thin solid black;*/
+}
+a{
+    text-decoration: none;
 }
 body{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 25px;
-    overflow: hidden;
+    overflow-x: hidden;
     background: #e9f7ff;
     padding: 0;
     margin: 0;
-}
-#outputCanvas{
-    border: thin solid rgb(192, 192, 192);
-    background: #fff;
-}
-#outputCanvas{
-    display: none;
-}
-.containerControler{
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 20dvw;
-    height: 100%;
-    background: #d3eeff;
-    padding: 20px;
-    overflow-y: auto;
-    padding-bottom: 50px;
-}
-.containerContent{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 77dvw;
     height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    gap: 25px;
-    flex-wrap: wrap;
-    overflow-y: auto;
-}
-#blurInput{
-    width: 50px;
-}
-tr{
-    padding: 20px;
-}
-td{
-    max-width: 150px;
-    white-space: wrap;
-}
-td:nth-child(2){
-    font-weight: bold;
-}
-input[type="number"]{
-    padding: 5px;
-}
-table {
-    border-collapse: collapse;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
+#inputImage{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    background: red;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+}
+.logo{
+    width: 80px;
+    height: 80px;
+}
+.princElements{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contant{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    left: 0;
+
+    .buttons{
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        z-index: 10;
+        margin: 20px;
+        padding: 10px;
+        max-width: 250px;
+        box-shadow: 3px 3px 9px #000;
+        max-width: var(--size);
+        min-width: calc(var(--size) + 10px);
+        
+        .linkMenuPrincipal{
+            display: inline-block;
+            width: 100%;
+            transition: 0.7s;
+
+            &:hover{
+                background: rgba(255,255,0,1);
+            }
+            li{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                list-style: none;
+                padding: 10px;
+                background: none;
+                white-space: nowrap;
+                color: #000;
+                position: relative;
+                font-size: 20px;
+                transition: 0.7s;
+                &:hover{
+                    color: #000;
+                    svg{
+                        fill: #000;
+                    }
+                }
+            }
+        }
+    }
+    #view{
+        width: 70%;
+        text-align: left;
+        display: none;
+        #canvas{
+            box-shadow: 3px 3px 9px #000;
+            position: relative;
+            border: thin solid #000;            
+            z-index: 1;
+            max-width: 62dvw;
+            z-index: 2;  
+            margin: 20px;      
+        }
+        #blackSvgCanvas{
+            position: absolute;
+            top:30px;
+            left:30px;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 3;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            
+            #svgCanvas{
+                fill: #fff;
+                left: 5px;               
+            }
+            &:hover #svgCanvas{
+                fill: #f00;
+            }
+        }
+    }
+}
+
+#open li, #reset li, #save li{
+    background: none;
+}
+#buttonsView{
+    display: none;
+}
+svg{
+    fill:#000;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    transition: 0.7s;
+}
+table {
+    position: relative;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: var(--size);
+    min-width: var(--size);
+    display: none;
+    margin-top: 10px;
+}
 table, th, td {
     border: 1px solid #aeaeae;
 }
-
+td:last-child{
+    font-weight: bold;
+}
 th, td {
     padding: 8px;
     text-align: left;
+    white-space: wrap;
 }
-
+tr:nth-child(odd) {
+    background-color: #c6c6c6;
+}
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-#showHidenControls{
-    display: block;
+#containerTables{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
 }
-#xCroped, #yCroped, #widthCroped, #heightCroped{
-    position: relative;
-    width: 50px;
+#tamanhoImg, #nomeImg1, #tamanhoImg1{
+    max-width: 150px;
+    white-space: wrap;
+    word-wrap: break-word; /* Força a quebra de palavra */
+    overflow-wrap: break-word; /* Quebra palavras */
+    word-break: break-all; /* Quebra palavras longas */
 }
-#downloadButton{
-    margin-bottom: 20px;
+#fundo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    overflow: auto;
+    cursor: pointer;
+    padding: 80px;
 }
-#logocontainer{
-    text-align: center;
-    margin-bottom: 50px;
-    img{
-        --sizeLogo: 120px;
-        width: var(--sizeLogo);
-        height: var(--sizeLogo);
+#closex{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+#imgFull{
+    border: 2px #f00 dotted;
+}
+.btnPrincipal{
+    color: #000;
+    svg{
+        fill: #f00;
     }
+    &:hover{
+        color: #000;
+    }
+}
+.containerLogo{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+a{
+    color: #000;
+}
+caption{
+    background: #222;
+    padding: 10px;
+    color: #fff;
 }

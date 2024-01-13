@@ -28,6 +28,9 @@ body{
     left: 20px;
     inset: 0;
     cursor: crosshair;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .logo{
     top: 20px;

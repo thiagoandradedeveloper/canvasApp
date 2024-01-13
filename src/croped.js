@@ -5,7 +5,7 @@ window.onload = function(event){
     const ctx = canvas.getContext('2d');
     const ctx2 = canvas.getContext('2d');
     const img = new Image();
-    let newWidth, newHeight;
+    let newWidth, newHeight, areaCanvas;
 
     // Sua imagem base64
     const imagemBase64 = localStorage.getItem('urlBase64');
@@ -16,6 +16,8 @@ window.onload = function(event){
         canvas.height = img.height;
         canvas.style.width  = img.width;
         canvas.style.height = img.height;
+
+        areaCanvas = img.width * img.height;
 
         // Desenhar a imagem no canvas
         ctx.drawImage(img, 0, 0);
@@ -28,8 +30,9 @@ window.onload = function(event){
    
     save.addEventListener("click",function(){
         
-        let base64Image = canvas.toDataURL('image/jpeg', 0.75);
-        localStorage.setItem('urlBase64', base64Image);        
+        let base64Image = canvas.toDataURL("image/png","0.75");
+        localStorage.setItem('urlBase64', base64Image);
+        
         window.location.href = "index.html";
     });
     reset.addEventListener("click",function(){
@@ -56,6 +59,9 @@ window.onload = function(event){
 
             if(distanciaYUp > canvas.height) { distanciaYUp = canvas.height; }
             if(distanciaXUP > canvas.width)  { distanciaXUP = canvas.width;  }
+            
+            if(distanciaYUp < 0) { distanciaYUp = 0; }
+            if(distanciaXUP < 0) { distanciaXUP = 0; }
 
             let trocaY, trocaX;
 
@@ -87,8 +93,17 @@ window.onload = function(event){
                 0, 0, //
                 dW, dH //
             );
-        
-            const base64ImageNormal = canvas.toDataURL("image/png");
+            let type = 'image/png'; 
+            if(localStorage.getItem('nome').indexOf(".jpg") != -1){
+                type = 'image/jpeg';
+            }
+            let proporcao = (canvas.width * canvas.height / areaCanvas).toFixed(2) + "";
+            let base64ImageNormal = canvas.toDataURL(type, proporcao);
+            
+            if((base64ImageNormal.length * 0.75 - 2) > (localStorage.getItem("sizeOriginal")*1)){
+                base64ImageNormal = canvas.toDataURL(type);
+            }
+            
             img.src = base64ImageNormal;
 
             desenhando = false;

@@ -97,9 +97,8 @@ body{
         text-align: left;
         display: none;
         #canvas{
-            box-shadow: 3px 3px 9px #000;
             position: relative;
-            border: thin solid #000;            
+            border: thin dotted #F00;            
             z-index: 1;
             max-width: 62dvw;
             z-index: 2;  
@@ -179,6 +178,7 @@ tr:nth-child(even) {
     justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
+    z-index: 1;
 }
 #tamanhoImg, #nomeImg1, #tamanhoImg1{
     max-width: 150px;
@@ -198,6 +198,7 @@ tr:nth-child(even) {
     overflow: auto;
     cursor: pointer;
     padding: 80px;
+    z-index: 3;
 }
 #closex{
     position: absolute;
@@ -206,7 +207,7 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 #imgFull{
-    border: 2px #f00 dotted;
+    border: thin #f00 dotted;
 }
 .btnPrincipal{
     color: #000;

@@ -44,9 +44,16 @@ window.onload = function(){
         save.style.display = "block";
     });
     save.addEventListener("click",function(){
-
-        let base64Image = canvas.toDataURL('image/jpeg', valorReducao);
-        localStorage.setItem('urlBase64', base64Image);      
+        
+        let type = "image/png"; 
+        if(localStorage.getItem('nome').indexOf(".jpg") != -1){
+            type = "'image/jpeg'";
+        }
+        let base64Image = canvas.toDataURL(type, valorReducao);
+        if((base64Image.length * 0.75 - 2) > (localStorage.getItem("sizeOriginal")*1)){
+            base64Image = canvas.toDataURL(type);
+        }
+        localStorage.setItem('urlBase64', base64Image);
         window.location.href = "index.html";
     });
 }

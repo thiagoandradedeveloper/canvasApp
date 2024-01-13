@@ -59,7 +59,7 @@ window.onload = function(){
             ctx.drawImage(img, 0, 0, newWidth, newHeight);
             
             alturaImg.textContent  = img.height + "px";
-            larguraImg.textContent = img.width + "px";            
+            larguraImg.textContent = img.width + "px";         
             
             nomeImg1.textContent    = input.files[0].name;
             alturaImg1.textContent  = localStorage.getItem('heightOriginal') + "px";
@@ -141,7 +141,6 @@ window.onload = function(){
             //parte para app electron
             // Obter o conteúdo do Canvas como uma string base64
             const base64Image = localStorage.getItem('urlBase64');
-            console.log("dfasdf" + base64Image)
 
             // Criar um link temporário
             const link = document.createElement('a');
@@ -223,5 +222,6 @@ window.onload = function(){
             img.src = imagemBase64;
         }
     }
+    console.log(localStorage.getItem('urlBase64Original'))
 }
 

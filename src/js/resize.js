@@ -50,9 +50,6 @@ window.onload = function(){
             type = "'image/jpeg'";
         }
         let base64Image = canvas.toDataURL(type, valorReducao);
-        if((base64Image.length * 0.75 - 2) > (localStorage.getItem("sizeOriginal")*1)){
-            base64Image = canvas.toDataURL(type);
-        }
         localStorage.setItem('urlBase64', base64Image);
         window.location.href = "index.html";
     });

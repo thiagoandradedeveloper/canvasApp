@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    background: none;
+    flex-direction: column;
+}
+.logo{
+    width: 250px;
+    height: 250px;
+}
+.title{
+    font-size: 35px;
+    font-family: '#44 Font Shadow';
+}

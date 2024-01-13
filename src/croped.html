@@ -4,17 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="croped.css">
-    <script src="croped.js"></script>
+    <link rel="stylesheet" href="css/croped.css">
+    <script src="js/croped.js"></script>
 </head>
 <body>
     <div class="controls">
         <a href="index.html">
             <img src="img/logo.png" class="logo">
         </a>
+        <a href="index.html">
+            <button>Voltar</button>
+        </a>
         <button id="reset">Resetar</button>
         <button id="save">Salvar</button>
     </div>
     <canvas id="canvas"></canvas>
+    <div id="infoImage">
+        <div class="infos">
+            <div class="infoCroped">Informaçoes antes do recorte:</div>
+            <span id="largAntes" class="valorInfo"></span>
+            &nbsp;x&nbsp;
+            <span id="altAntes"  class="valorInfo"></span>
+            Tamanho: <span id="sizeAntes" class="valorInfo"></span>
+        </div>
+        <div class="infos" id="apos">
+            <div class="infoCroped">Informaçoes após o recorte:</div>
+            <span id="largApos"  class="valorInfo"></span>
+            &nbsp;x&nbsp;
+            <span id="altApos" class="valorInfo"></span>
+            Tamanho: <span id="sizeApos" class="valorInfo"></span>
+        </div>
+    </div>
 </body>
 </html>

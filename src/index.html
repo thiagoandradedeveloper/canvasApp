@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Canvas Edit</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <title>Canvas Image Edit</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
     <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.0/svg.min.js"></script>
 </head>
 <body>
     <div class="contant">
@@ -15,7 +14,7 @@
             <a href="index.html">       
                 <div class="containerLogo">
                     <img src="img/logo.png" class="logo"><br>
-                    Image Canvas Edit
+                    Canvas Image Edit
                 </div>
             </a>            
             <a href="#" id="open" class="linkMenuPrincipal">
@@ -120,6 +119,12 @@
         <img src="" id="imgFull">
     </div>
     <div id="containerTables">
+        <div id="fundoImg">
+            Cor fundo da imagem
+            <br><br>
+            <input type="color" id="colorCanvasPrincipal" value="#e9f7ff"><br><br>
+            <button id="resetColor">Resetar cor de fundo</button>
+        </div>  
         <table style="max-width: 15dvw; min-width: 15dvw;" id="apos">
             <caption>Dados da Imagem Antes da Modificação</caption>
             <tr>
@@ -153,7 +158,7 @@
                 <td>Tamanho:</td>
                 <td id="tamanhoImg"></td>
             </tr>
-        </table>          
+        </table> 
     </div>
 </body>
 </html>

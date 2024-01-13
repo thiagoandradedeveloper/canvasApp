@@ -19,7 +19,7 @@ function createWindow() {
 
   win.loadFile('src/index.html');
   win.maximize();
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   // Adicione o manipulador de eventos 'close' para confirmar o fechamento
   win.on('close', (event) => {

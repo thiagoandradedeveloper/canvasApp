@@ -222,6 +222,12 @@ window.onload = function(){
             img.src = imagemBase64;
         }
     }
-    console.log(localStorage.getItem('urlBase64Original'))
+    colorCanvasPrincipal.addEventListener("change",()=>{
+        canvas.style.background = colorCanvasPrincipal.value;
+    });
+    resetColor.addEventListener("click",()=>{
+        colorCanvasPrincipal.value = "#e9f7ff";
+        canvas.style.background = "#e9f7ff";
+    });
 }
 

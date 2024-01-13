@@ -2,7 +2,7 @@
     --size: 15dvw;
 }
 *{
-    font-family: sans-serif,Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
     position: relative;
     z-index: 1;
     box-sizing: border-box;
@@ -59,9 +59,9 @@ body{
         margin: 20px;
         padding: 10px;
         max-width: 250px;
-        box-shadow: 3px 3px 9px #000;
         max-width: var(--size);
         min-width: calc(var(--size) + 10px);
+        border: #000 thin solid;
         
         .linkMenuPrincipal{
             display: inline-block;
@@ -102,7 +102,7 @@ body{
             z-index: 1;
             max-width: 62dvw;
             z-index: 2;  
-            margin: 20px;      
+            margin: 20px;    
         }
         #blackSvgCanvas{
             position: absolute;
@@ -223,6 +223,7 @@ tr:nth-child(even) {
     width: 100%;
     margin-bottom: 30px;
     font-weight: bold;
+    font-family: "#44 Font Shadow";
 }
 a{
     color: #000;
@@ -231,4 +232,13 @@ caption{
     background: #222;
     padding: 10px;
     color: #fff;
+}
+#resetColor{
+    padding: 5px;
+}
+#fundoImg{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
 }

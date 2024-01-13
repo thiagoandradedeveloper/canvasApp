@@ -1,5 +1,5 @@
 *{
-    font-family: sans-serif,Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
     position: relative;
     z-index: 1;
     padding: 0;
@@ -51,4 +51,30 @@ button{
 }
 .controls{
     margin-bottom: 15px;
+}
+
+#infoImage{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-align: left;
+    border: thin solid rgb(159, 202, 255);
+    padding: 10px;
+    .infos{
+        display: inline-block;
+        .infoCroped{
+            font-size: 13px;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+        .valorInfo{
+            font-weight: bold;
+        }
+    }
+    #apos{
+        display: none;
+    }
+    .infos:nth-child(2){
+        margin-left: 50px;
+    }
 }

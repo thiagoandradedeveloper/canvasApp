@@ -5,34 +5,63 @@ window.onload = function(event){
     const ctx = canvas.getContext('2d');
     const ctx2 = canvas.getContext('2d');
     const img = new Image();
-    let newWidth, newHeight, areaCanvas;
+    let sizeOriginal, areaCanvas, imagemBase64;
+    let modification = false;
+    let firstLoader = true;
 
-    // Sua imagem base64
-    const imagemBase64 = localStorage.getItem('urlBase64');
+    function carregar(){
+        // Sua imagem base64
+        imagemBase64 = localStorage.getItem('urlBase64');
 
-    img.onload = function() {
-        // Ajustar o tamanho do canvas ao tamanho da imagem
-        canvas.width  = img.width;
-        canvas.height = img.height;
-        canvas.style.width  = img.width;
-        canvas.style.height = img.height;
+        img.onload = function() {
 
-        areaCanvas = img.width * img.height;
+            // Ajustar o tamanho do canvas ao tamanho da imagem
+            canvas.width  = img.width;
+            canvas.height = img.height;
+            canvas.style.width  = img.width;
+            canvas.style.height = img.height;
 
-        // Desenhar a imagem no canvas
-        ctx.drawImage(img, 0, 0);
+            if(firstLoader){
+                altAntes.textContent  = img.height + "px";
+                largAntes.textContent = img.width + "px";
+                sizeAntes.textContent = (imagemBase64.length * 0.75 - 2) + " Bytes";
+                firstLoader = false;
+            }
 
-        //document.body.zoom = 20;
-    };
+            altApos.textContent  = img.height + "px";
+            largApos.textContent = img.width + "px";
+            sizeOriginal = (imagemBase64.length * 0.75 - 2);
+            sizeApos.textContent = (imagemBase64.length * 0.75 - 2) + " Bytes";
 
-    // Carregar a imagem base64 na instância de Image
-    img.src = imagemBase64;
+            areaCanvas = img.width * img.height;
+
+            // Desenhar a imagem no canvas
+            ctx.drawImage(img, 0, 0);
+
+            modification = true;
+        };
+
+        // Carregar a imagem base64 na instância de Image
+        img.src = imagemBase64;
+    }
+    carregar();
+
+    function urlBase64(){
+        let type = 'image/png'; 
+        if(localStorage.getItem('nome').indexOf(".jpg") != -1){
+            type = 'image/jpeg';
+        }
+        let proporcao = (canvas.width * canvas.height / areaCanvas).toFixed(2) + "";
+        let base64Image = canvas.toDataURL(type, proporcao);
+        
+        if((base64Image.length * 0.75 - 2) > (localStorage.getItem("sizeOriginal")*1)){
+            base64Image = canvas.toDataURL(type);
+        }
+        return base64Image;
+    }
    
     save.addEventListener("click",function(){
-        
-        let base64Image = canvas.toDataURL("image/png","0.75");
-        localStorage.setItem('urlBase64', base64Image);
-        
+        localStorage.setItem('urlBase64', urlBase64());
         window.location.href = "index.html";
     });
     reset.addEventListener("click",function(){
@@ -41,9 +70,7 @@ window.onload = function(event){
         img.src = imagemBase64;
 
         ctx .clearRect(0, 0, canvas.width, canvas.height);
-        ctx2.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
     });
 
     // Variáveis para rastrear o estado do desenho
@@ -93,20 +120,24 @@ window.onload = function(event){
                 0, 0, //
                 dW, dH //
             );
-            let type = 'image/png'; 
-            if(localStorage.getItem('nome').indexOf(".jpg") != -1){
-                type = 'image/jpeg';
-            }
-            let proporcao = (canvas.width * canvas.height / areaCanvas).toFixed(2) + "";
-            let base64ImageNormal = canvas.toDataURL(type, proporcao);
-            
-            if((base64ImageNormal.length * 0.75 - 2) > (localStorage.getItem("sizeOriginal")*1)){
-                base64ImageNormal = canvas.toDataURL(type);
-            }
-            
-            img.src = base64ImageNormal;
 
             desenhando = false;
+            apos.style.display = "inline-block";
+            img.src = urlBase64();
+
+            let time = setInterval(() => {
+        
+                altApos.textContent  = canvas.height + "px";
+                largApos.textContent = canvas.width + "px";                
+                let sizeFinal = urlBase64().length * 0.75 - 2;
+                let porcentagem = ((sizeFinal / sizeOriginal) * 100).toFixed(2);
+                sizeApos.textContent = sizeFinal + " Bytes (" + porcentagem + "%)";
+
+                if(modification = true){
+                    clearInterval(time);
+                }
+
+            }, 100);
         }
     });
     canvas.addEventListener('mousedown', function(event) {

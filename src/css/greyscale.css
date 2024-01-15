@@ -20,7 +20,7 @@ body{
     max-height: 80%;
     border: thin solid #000;
     margin-top: 100px;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 .logo{
     width: 50px;
@@ -46,6 +46,7 @@ button{
     top: 10px;
     left: 10px;
     width: 100%;
+    margin-left: 50px;
 }
 #efeito{
     font-size: 25px;

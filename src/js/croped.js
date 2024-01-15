@@ -53,13 +53,13 @@ window.onload = function(event){
         }
         let proporcao = (canvas.width * canvas.height / areaCanvas).toFixed(2) + "";
         let base64Image = canvas.toDataURL(type, proporcao);
-        
+
         if((base64Image.length * 0.75 - 2) > (localStorage.getItem("sizeOriginal")*1)){
             base64Image = canvas.toDataURL(type);
         }
         return base64Image;
     }
-   
+
     save.addEventListener("click",function(){
         localStorage.setItem('urlBase64', urlBase64());
         window.location.href = "index.html";
@@ -80,13 +80,17 @@ window.onload = function(event){
     document.addEventListener('mouseup', function(event) {
 
         if(desenhando){
+
+            const scrollTopValue = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollLeftValue = document.documentElement.scrollLeft || document.body.scrollLeft;
+
             rect = canvas.getBoundingClientRect()
-            distanciaXUP = event.clientX - rect.left;
-            distanciaYUp = event.clientY - rect.top;
+            distanciaXUP = event.clientX - canvas.offsetLeft + scrollLeftValue;
+            distanciaYUp = event.clientY - canvas.offsetTop  + scrollTopValue;
 
             if(distanciaYUp > canvas.height) { distanciaYUp = canvas.height; }
             if(distanciaXUP > canvas.width)  { distanciaXUP = canvas.width;  }
-            
+
             if(distanciaYUp < 0) { distanciaYUp = 0; }
             if(distanciaXUP < 0) { distanciaXUP = 0; }
 
@@ -102,7 +106,6 @@ window.onload = function(event){
                 distanciaXUP = distanciaXDOWN;
                 distanciaXDOWN = trocaX;
             }
-
 
             // Limpar o canvas antes de desenhar a nova imagem
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -126,7 +129,7 @@ window.onload = function(event){
             img.src = urlBase64();
 
             let time = setInterval(() => {
-        
+
                 altApos.textContent  = canvas.height + "px";
                 largApos.textContent = canvas.width + "px";                
                 let sizeFinal = urlBase64().length * 0.75 - 2;
@@ -141,20 +144,27 @@ window.onload = function(event){
         }
     });
     canvas.addEventListener('mousedown', function(event) {
+
+        const scrollTopValue = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollLeftValue = document.documentElement.scrollLeft || document.body.scrollLeft;
+
         rect = canvas.getBoundingClientRect()
-        distanciaXDOWN = event.clientX - rect.left;
-        distanciaYDOWN = event.clientY - rect.top;
+        distanciaXDOWN = event.clientX - canvas.offsetLeft + scrollLeftValue;
+        distanciaYDOWN = event.clientY - canvas.offsetTop  + scrollTopValue;
         desenhando = true;
-        pontoInicial = { x: event.clientX - canvas.offsetLeft, y: event.clientY - canvas.offsetTop };
+        pontoInicial = { x: event.clientX - canvas.offsetLeft + scrollLeftValue, y: event.clientY - canvas.offsetTop + scrollTopValue};
     });
     // Adiciona um ouvinte de evento para o movimento do mouse
     canvas.addEventListener('mousemove', function(event) {
-        
+
         if (!desenhando) return;
 
         ctx.save();
 
-        pontoFinal = { x: event.clientX - canvas.offsetLeft, y: event.clientY - canvas.offsetTop };
+        const scrollTopValue = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollLeftValue = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+        pontoFinal = { x: event.clientX - canvas.offsetLeft + scrollLeftValue, y: event.clientY - canvas.offsetTop + scrollTopValue };
 
         // Limpa o canvas
         ctx2.clearRect(0, 0, canvas.width, canvas.height);

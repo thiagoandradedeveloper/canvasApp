@@ -8,13 +8,25 @@
     <script src="js/mask.js"></script>
 </head>
 <body>
-    <div>
+    <div class="controle">
         <a href="index.html">
             <img src="img/logo.png" class="logo">
         </a>
-        Mascara de Cor(Transparência <span id="valorTransparencia">0%</span>)&nbsp;
-        [0%<input type="range" value="0" min="0" max="100" id="inputTransparencia">100%]  
-        Cor da Mascara<input type="color" id="color" value="#ffffff">
+        <span id="efeito">
+            &nbsp;Mascara de Cor&nbsp;
+            <span id="valorTransparencia">0px</span>
+        </span>
+        &nbsp;&nbsp;
+        <a href="index.html">
+            <button>Voltar</button>
+        </a>
+        &nbsp;&nbsp;
+        <a href="index.html">
+            <button>Salvar</button>
+        </a>
+        &nbsp;&nbsp;0px&nbsp;
+        <input type="range" value="0" min="0" max="100" id="inputTransparencia">100px
+        Cor da Mascara&nbsp;&nbsp;<input type="color" id="color" value="#ffffff">
     </div>
     <canvas id="canvas"></canvas>
 </body>

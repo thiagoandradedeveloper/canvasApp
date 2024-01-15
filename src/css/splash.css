@@ -1,16 +1,19 @@
+/* CSS fonte externa */
+@font-face {
+    font-family: '#44 Font Shadow';
+    src: url('fonts/#44v2s.ttf') format('ttf'); /* Substitua pelo caminho real da fonte */
+}
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100dvh;
-    background: none;
     flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    background: none
 }
 .logo{
     width: 250px;
     height: 250px;
-}
-.title{
-    font-size: 35px;
-    font-family: '#44 Font Shadow';
 }

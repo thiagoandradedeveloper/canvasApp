@@ -28,6 +28,7 @@ window.onload = function(){
 
                 apos.style.display = "block";
                 antes.style.display = "none";
+                fundoImg.style.display = "block";
 
                 let urlBase64 = e.target.result;
                 localStorage.setItem('urlBase64', urlBase64);
@@ -164,7 +165,7 @@ window.onload = function(){
         const alturaViewport = window.innerHeight || document.documentElement.clientHeight;
 
         // Altura máxima desejada
-        let alturaMaxima = alturaViewport;
+        let alturaMaxima = alturaViewport * 1000000000000;
         
         if(img.height > alturaMaxima){
             
@@ -199,6 +200,7 @@ window.onload = function(){
                     
                 view.style.display = "block";
                 buttonsView.style.display = "block";
+                fundoImg.style.display = "block";
 
                 // Desenhar a imagem no canvas
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);

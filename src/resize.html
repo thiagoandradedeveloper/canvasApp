@@ -34,8 +34,8 @@
             <option value="10">10%</option>
             <option value="5" >05%</option>            
         </select>
-        &nbsp;do tamanho original de cada lado.
-        <button id="save">Salvar</button>&nbsp;&nbsp;
+        &nbsp;do tamanho de cada lado. 
+        <button id="save">Salvar</button>
         <a href="index.html">
             &nbsp;<button>Voltar</button>&nbsp;&nbsp;
         </a>
@@ -44,6 +44,22 @@
     </div>
     <div id="tamanhoOriginal">
         <canvas id="canvas"></canvas>
+    </div>
+    <div id="infoImage">
+        <div class="infos">
+            <div class="infoCroped">Informaçoes antes do recorte:</div>
+            <span id="largAntes" class="valorInfo"></span>
+            &nbsp;x&nbsp;
+            <span id="altAntes"  class="valorInfo"></span>
+            Tamanho: <span id="sizeAntes" class="valorInfo"></span>
+        </div>
+        <div class="infos" id="apos">
+            <div class="infoCroped">Informaçoes após o recorte:</div>
+            <span id="largApos"  class="valorInfo"></span>
+            &nbsp;x&nbsp;
+            <span id="altApos" class="valorInfo"></span>
+            Tamanho: <span id="sizeApos" class="valorInfo"></span>
+        </div>
     </div>
 </body>
 </html>

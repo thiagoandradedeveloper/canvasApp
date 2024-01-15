@@ -58,11 +58,11 @@ body{
         z-index: 10;
         margin: 20px;
         padding: 10px;
-        max-width: 250px;
         max-width: var(--size);
-        min-width: calc(var(--size) + 10px);
+        min-width: 220px;
         border: #000 thin solid;
-        
+        padding-right: 20px;
+       
         .linkMenuPrincipal{
             display: inline-block;
             width: 100%;
@@ -102,7 +102,8 @@ body{
             z-index: 1;
             max-width: 62dvw;
             z-index: 2;  
-            margin: 20px;    
+            margin: 20px;
+            margin-left: 0;
         }
         #blackSvgCanvas{
             position: absolute;
@@ -241,4 +242,5 @@ caption{
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
+    display: none;
 }
